@@ -44,13 +44,13 @@ module.exports = () => {
             // MsgId: '6639946988331383890' }
             const message = formateMessage(jsonData);
 
-            const option = reply(message)
+            const option = reply(message);
 
-            const replyMessage = template(option)
+            const replyMessage = template(option);
             
-            res.send(replyMessage)
+            res.send(replyMessage);
         } else {
-            res.end('error')
+            res.end('error');
         }
     
     }

@@ -17,6 +17,15 @@ module.exports = message => {
             content = '年纪轻轻叹什么气';
         } else if(message.Content.match('爱')) {
             content = '我也爱你';
+        } else if(message.Content.match('田') || message.Content.match('艳') || message.Content.match('茶') || message.Content === '田艳茶') {
+            const arr = ['所有温暖如春的句子里都藏着你的脸，亲爱的', '唇齿深渊，眉眼之间，我喜欢你年复一年。', '我想陪你看遍世间美景, 然后告诉你, 它们都不及你万分之一', '世界都不大，我可以哪里都不去，我可以在这里，只看着你，直到世界老去。', '我的人生从来没有出现过奇迹，直到我遇见了你。', '你名字就那么几笔，却深深刻进我心底。', '我前半生三次最强烈的心跳, 分别发生在上课被老师点名, 下楼梯时一脚踩空, 和遇见你的时候']
+            let num = Math.floor(Math.random()*10) || 0;
+            
+            if(num > 6) {
+                num = 6
+            }
+            
+            content = arr[num];
         } 
     } else if (message.MsgType === 'image') {
         option.msgType = 'image';
