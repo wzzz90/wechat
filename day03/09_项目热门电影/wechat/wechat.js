@@ -6,6 +6,7 @@ const config = require('../config')
 const { appID, appsecret } = config;
 const menu = require('./menu.js');
 const { writeFileAsync, readFileAsync } = require('../utils/tools.js')
+
 class Wechat {
     constructor () {
 
@@ -183,19 +184,19 @@ class Wechat {
 module.exports = Wechat;
 
 
-// (async () => {
-//     const w = new Wechat();
-//     let res = await w.deleteMenu();
+(async () => {
+    const w = new Wechat();
+    let res = await w.deleteMenu();
     
-//     console.log(res, 'deleteMenu成功')
+    console.log(res, 'deleteMenu成功')
 
-//     res = await w.createMenu(menu);
+    res = await w.createMenu(menu);
 
-//     console.log(res, 'createMenu成功')
+    console.log(res, 'createMenu成功')
 
-//     const data = await w.fetchTicket();
+    const data = await w.fetchTicket();
     
-// })()
+})()
 
 // new Promise((resolve, reject) => {
 //     //先读取accessToKEN.txt文件

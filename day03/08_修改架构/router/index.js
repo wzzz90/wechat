@@ -1,20 +1,18 @@
 const express = require('express');
 const sha1 = require('sha1');
 
-const auth = require('./wechat/auth.js');
-const Wechat = require('./wechat/wechat.js');
-const { url } = require('./config/index.js');
+const reply = require('../reply');
+const Wechat = require('../wechat/wechat.js');
+const { url } = require('../config/index.js');
 
-const app = express();
+const Router = express.Router;
 
+const router = new Router();
 
-app.set('views', './views');
-
-app.set('view engine', 'ejs');
 
 const wechatApi = new Wechat();
 
-app.get('/search', async (req, res) => {
+router.get('/search', async (req, res) => {
     
     /*生成js-sdk使用的签名
     1.组合参与签名的四个参数，jsapi_ticket(临时票据)、noncestr(随机字符串)、timestamp(时间戳)、url(当前服务器地址)
@@ -42,6 +40,7 @@ app.get('/search', async (req, res) => {
     })
 })
 
-app.use(auth())
+router.use(reply());
 
-app.listen(3001, () => console.log('连接成功'))
+
+module.exports = router;
